@@ -1,70 +1,60 @@
-# Front End Interview Project
+# Overview
 
-Hello! If you're reading this, that means you've passed our initial phone screen. Congrats! We're excited to get to know
-you more and see if you'd be a good fit for Real.
+----
 
-We would like you to implement the following project to help us assess your real-world programming knowledge.
+## About The Application
+### Application Description
+This React application is built with a focus on the separation of concerns and control over the build system. I have leveraged Webpack for the builds, providing a local build, a production build, and a common object shared by both. The application architecture follows a directory structure divided into two main concepts: **components** and **core** (found in the ```src``` directory). The ```components``` directory houses the direct presentation concerns in TypeScript (.tsx), while the ```core``` directory contains the business logic concerns in TypeScript (.ts).
 
-## The Project
+To streamline the styling process, I have utilized Sass for CSS preprocessing. Common styling concerns can be found in the ```src/styles``` directory. However, I believe in treating React components as first-class citizens, and as such, each component has its associated .scss file. This approach promotes modularity and encapsulation.
 
-We're going to create an application that uses the public Github API to render Github users and display information
-about their account.
+For efficient state management, I have incorporated Redux. I have taken an unconventional approach to handle action creator functions. Rather than directly importing them into components, I dynamically provide the action creators to any component at runtime using a React Context. Although this implementation is less straightforward from a conventional perspective, it allows for greater flexibility and re-usability of the action creators throughout the application—it just takes some getting used to.
 
-The application will consist of two pages:
+In addition to the action creators, a singleton-like data service is implemented and provided via the React Context as well. This data service is a wrapper for Axios and is provided an Axios configuration at instantiation.
 
-1. A Home Page, where I can see a list of users.
-2. A User detail page, where I can view specific information for a user.
+### Directory Structure
+- _configs_ - contains configurations for Jest, PostCss, TypeScript, and Webpack
+- _src_ - contains all necessary code for app development (the files in this directory get processed for the build)
+- _tests_ - contains test data and test utilities. This directory holds coverage files as well (```__coverage__``` - git ignored)
 
-The home page will query the [users](https://api.github.com/users) endpoint and render each user. We should:
+### Future Development
+In the future, I'd integrate functionality that allows loading a configuration file after Just-in-Time (JIT) compilation to manage application settings. This feature would enable dynamic configuration of the application without requiring a recompilation. For instance, a config file could provide important information such as the API base URL or available routes. By loading this config file at runtime, the application can easily adapt to different environments or settings without the need for code changes.
 
-- show their avatar
-- show their username
+Additionally, the current data service implementation is limited to handling only GET requests. In the future I'd implement other HTTP methods such as POST, PUT, and DELETE as well. This expansion would make the data service more robust and versatile, enabling the application to meet a broader set of requirements.
 
-When I click on a user, I will be taken to a dedicated user detail page. On that page, I should see:
+----
 
-- their repos, which is the main content of the page.
-- their organizations
-- their first 5 followers, and include a count of total followers.
+## Requirements
++ Node 18.16.0 or higher
++ NPM 9.5.1 or higher
++ Operating System: Mac OSX 10.13 or higher/Windows 8 or higher
 
-Github provides a rate limit for API users without authentication to a max of 60 requests per hour. You may want to mock
-the response or use a personal access token to fetch the API.
+----
 
-We have provided you with a **create-react-app** template project, however, please feel free to use whatever
-technologies / frameworks / libraries that you are most comfortable with. We just ask that **this be implemented in
-React**, and not in another framework, like Vue/Angular/Ember/etc.
+## Installation
+Open a terminal, navigate to the root directory of this repository, and type the command **npm install**.
 
-**Note:** Please add tests! The project will be considered incomplete if you do not have any tests written.
+----
 
-## What are we looking for?
+## Development
+### Scripts
++ **npm start:** Starts webpack dev server on localhost port 8080
++ **npm run build:** Creates a new build folder
++ **npm test:** Runs the Jest test runner (currently ~98% coverage)
 
-Some questions to think about:
+### Workflow
+#### development mode
+- Run the command **npm start**
+- A browser window should open at http://localhost:8080
+- The React application should run
+- As you work on the application, changes are propagated to the browser.
 
-- How can you make your code reusable?
-- How can we adhere to proper separation of concerns?
-- Are we using modern development practices?
-- Is my page mobile responsive?
+#### production mode
+- Run the command **npm run build**
 
-We would also like to consider the following:
+----
 
-- How can I make it easy for any engineer to create a detail page?
-- How can I handle error cases, like 404s, automatically?
-- All in all: **how can I construct the beginnings of a _system_ that will make other engineers' lives easier?**
-
-## Your Submission
-
-After you have implemented the two pages, please write an overview of what you have implemented, what were any tradeoffs
-you made, and how you would extend this if you had more time. Please include this in the OVERVIEW.md file.
-
-## Conclusion
-
-Please feel free to reach out to the recruiter if you have any questions or if anything is unclear. We're excited to see
-what you come up with! Good luck!
-## License
-
-At CodeScreen, we strongly value the integrity and privacy of our assessments. As a result, this repository is under exclusive copyright, which means you **do not** have permission to share your solution to this test publicly (i.e., inside a public GitHub/GitLab repo, on Reddit, etc.). <br>
-
-## Submitting your solution
-
-Please push your changes to the `main branch` of this repository. You can push one or more commits. <br>
-
-Once you are finished with the task, please click the `Submit Solution` link on <a href="https://app.codescreen.com/candidate/fd1c581e-de1d-4b73-8b08-0bf326df1d69" target="_blank">this screen</a>.
+## Running The Production Application
+- Open a terminal and navigate to the build directory.
+- Run any web server (ex. _python3 -m http.server_. This will serve the build at http://localhost:8000).
+- Open up a web browser and navigate to http://localhost:8000
