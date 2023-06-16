@@ -1,0 +1,89 @@
+.repos {
+  padding: 24px;
+  background-color: $cooler;
+
+  h2 {
+    margin-bottom: 24px;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+  }
+
+  a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+  > a {
+    padding-top: 24px;
+    padding-bottom: 20px;
+    border: 4px dashed $cool;
+    margin-top: 10px;
+  }
+  > a:hover {
+    border-color: $neutral;
+  }
+
+  li {
+    width: 50%;
+    margin-bottom: 0;
+    padding: 24px 16px 16px 0;
+    border-top: 1px;
+    border-top: 3px dashed $warm;
+  }
+
+  .repo-stars-watchers {
+    display: flex;
+    margin-top: 8px;
+
+    > span {
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      margin-right: 8px;
+
+      > div {
+        margin-right: 2px;
+      }
+    }
+  }
+
+  .repo-name {
+    font-size: 16px;
+    a {
+      text-align: left;
+      word-break: break-word;
+      width: fit-content;
+    }
+  }
+
+  .repo-description {
+    font-family: 'Roboto';
+    color: $neutral;
+    margin-top: 12px;
+    overflow: hidden;
+    word-break: break-word;
+  }
+
+  @media (max-width: $breakpoint-medium ) {
+    li {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet ) {
+    .repo-name {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: $breakpoint-small ) {
+    .repo-name {
+      font-size: 12px;
+    }
+  }
+
+}

@@ -1,0 +1,97 @@
+.user-details {
+
+  h1 {
+    font-size: 30px;
+    margin-bottom: 24px;
+    margin-top: -56px;
+    margin-left: 10px;
+    text-shadow: 2px 2px $cooler;
+    color: $warmer;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-right: 6px dashed $warmer;
+    border-bottom: 6px dashed $warmer;
+    border-top: 6px solid #F26627;
+    border-left: 6px solid #F26627;
+    margin-top: -6px;
+    margin-left: -6px;
+    box-sizing: content-box;
+  }
+
+  .avatar-orgs {
+    display: flex;
+    height: 420px;
+    margin-bottom: 8px;
+  }
+
+  .avatar-login {
+    width: 420px;
+  }
+
+  @import "./followers";
+  @import "./orgs";
+  @import "./repos";
+
+  @media (max-width: $breakpoint-tablet) {
+    h1 {
+      font-size: 28px;
+    }
+    .avatar-login {
+      width: 360px;
+    }
+    .avatar-orgs {
+      height: 360px;
+    }
+  }
+
+  @media (max-width: $breakpoint-small) {
+    h1 {
+      position: relative;
+      z-index: 1;
+      margin-top: -56px;
+      padding: 12px;
+      margin-bottom: 0;
+      color: $warm;
+    }
+    .avatar-orgs {
+      flex-direction: column;
+      height: 100%;
+      margin-bottom: 0;
+
+    }
+    .avatar-login {
+      width: 100%;
+
+      img {
+        display: block;
+        position: absolute;
+        width: 120px;
+        height: 120px;
+        top: 0;
+        right: 0;
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 6px;
+        paffing: 6px;
+        border-width: 0;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+        box-sizing: border-box;
+        padding: 12px;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-xsmall) {
+    h1 {
+      font-size: 20px;
+      margin-top: -50px;
+    }
+  }
+
+}
