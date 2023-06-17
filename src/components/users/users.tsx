@@ -7,7 +7,7 @@ import {ServiceContext} from "../../core/service-context";
 import {IInitialState} from "../../core/store";
 import {IUser} from "../../core/schemas";
 
-const Home = () => {
+const Users = () => {
 
   const usersAction = useContext(ServiceContext).actions.users;
   const userDetailsAction = useContext(ServiceContext).actions.userDetails;
@@ -43,4 +43,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Users;
