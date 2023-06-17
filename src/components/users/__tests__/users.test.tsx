@@ -9,6 +9,8 @@ import {users, user} from "../../../../tests/testData";
 
 import Users from "../users";
 
+import {IRequest} from "../../../../tests/utils/renderComponentInApp";
+
 describe("<Users />", () => {
 
   test("should render the Users Component with no users", () => {
@@ -18,7 +20,9 @@ describe("<Users />", () => {
   });
 
   test("should render the Users Component with 30 users", async () => {
-    const requests = [{route:'users', data:users}]
+    const requests: IRequest[] = [
+      {method: 'get', route: 'users', response: users},
+    ]
     const {component} = commonSetup(<Users/>, {}, requests);
     const ul = component.getByRole('list');
     await waitFor(() => {
@@ -28,7 +32,9 @@ describe("<Users />", () => {
 
   test("should render the Users Component and clear a selected user if one is stored in state", async () => {
     const initialState = {userDetails:{user}}
-    const requests = [{route:'users', data:users}]
+    const requests: IRequest[] = [
+      {method: 'get', route: 'users', response: users},
+    ]
     const {component} = commonSetup(<Users/>, initialState, requests);
     const ul = component.getByRole('list');
     await waitFor(() => {
@@ -37,7 +43,9 @@ describe("<Users />", () => {
   });
 
   test("should render the Users Component with 30 users and filter them to 1", async () => {
-    const requests = [{route:'users', data:users}]
+    const requests: IRequest[] = [
+      {method: 'get', route: 'users', response: users},
+    ]
     const {component} = commonSetup(<Users/>, {}, requests);
     const ul = component.getByRole('list');
     await waitFor(() => {

@@ -9,6 +9,8 @@ import {userFollowers, userOrgs, userRepos, users, user} from "../../../../tests
 
 import UserDetails from "../user-details";
 
+import {IRequest} from "../../../../tests/utils/renderComponentInApp";
+
 const mockParams = {
   login: 'mojodna',
 };
@@ -23,11 +25,11 @@ describe("<UserDetails />", () => {
     const initialState = {
       users: {users: users}
     }
-    const requests = [
-      {route: '/users/mojodna', data: user},
-      {route: '/users/mojodna/followers', data: userFollowers},
-      {route: '/users/mojodna/orgs', data: userOrgs},
-      {route: '/users/mojodna/repos', data: userRepos}
+    const requests: IRequest[] = [
+      {method: 'get', route: '/users/mojodna', response: user},
+      {method: 'get', route: '/users/mojodna/followers', response: userFollowers},
+      {method: 'get', route: '/users/mojodna/orgs', response: userOrgs},
+      {method: 'get', route: '/users/mojodna/repos', response: userRepos},
     ];
     await act(async () => {
       const {component} = commonSetup(<UserDetails/>, initialState, requests);

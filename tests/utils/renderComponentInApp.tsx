@@ -16,16 +16,23 @@ import {Store} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
 import {IInitialState, initialState, rootReducer} from "../../src/core/store";
 
-interface IRequest {
-  route: string | RegExp;
-  data: any;
+export interface IRequest {
+  method: 'get';
+  responseCode?: number;
+  route: string;
+  response: object;
 }
 
 export function commonSetup(ComponentToRender: any, initialState: object = {}, requests: IRequest[] = []) {
   const mock = new MockAdapter(axios);
-  mock.resetHandlers();
+  const methodMap = {
+    get: ({route, responseCode = 200, response}: IRequest) => {
+      mock.onGet(route).reply(responseCode, response)
+    }
+  }
+  mock.reset();
   requests.forEach((request) => {
-    mock.onGet(request.route).reply(200, request.data);
+    methodMap[request.method](request);
   });
   const {component, store, services} = renderComponentInApp(() => ComponentToRender, initialState);
   return {component, store, services, mock};
