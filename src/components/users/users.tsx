@@ -52,7 +52,7 @@ const Users = () => {
         <div className="filter-icon">
           <IconFilter color="#EFEEEE" height="28" width="28" />
         </div>
-        <input value={filterValue} onChange={onFilterChange} />
+        <input name="filter-users" value={filterValue} onChange={onFilterChange} />
       </div>
       <ul>
         {filteredUsers.map((user) => {

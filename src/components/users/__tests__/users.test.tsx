@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import {waitFor} from "@testing-library/react";
+import {fireEvent, waitFor} from "@testing-library/react";
 import {commonSetup} from "../../../../tests/utils/renderComponentInApp";
 import {users, user} from "../../../../tests/testData";
 
@@ -33,6 +33,22 @@ describe("<Users />", () => {
     const ul = component.getByRole('list');
     await waitFor(() => {
       expect(ul.children.length).toEqual(30);
+    });
+  });
+
+  test("should render the Users Component with 30 users and filter them to 1", async () => {
+    const requests = [{route:'users', data:users}]
+    const {component} = commonSetup(<Users/>, {}, requests);
+    const ul = component.getByRole('list');
+    await waitFor(() => {
+      expect(ul.children.length).toEqual(30);
+    });
+    const input = component.container.querySelectorAll('.users .filter-users input')[0]
+    fireEvent.change(input, {
+      target: { value: "jes" }
+    });
+    await waitFor(() => {
+      expect(ul.children.length).toEqual(1);
     });
   });
 
