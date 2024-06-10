@@ -16,7 +16,7 @@ import {IInitialState} from "../core/store";
 const App = () => {
   const store: Store<IInitialState, AppAction> = generateStore();
   let apiRequestConfig = {
-    "baseURL": "https://api.github.com/",
+    "baseURL": "https://jsonplaceholder.typicode.com/",
     "headers": {
       "Accept": "application/json",
       "Content-Type": "application/json"
