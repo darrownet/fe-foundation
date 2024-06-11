@@ -27,15 +27,9 @@ h2 {
 
 a {
   color: $cool;
-  img {
-    border-color: $cool;
-  }
 }
 a:hover {
   color: $neutral;
-  img {
-    border-color: $neutral !important;
-  }
 }
 
 #app-root {
@@ -48,5 +42,4 @@ a:hover {
 
 .content {
   background-color: $cooler;
-  //border: 6px dashed $warmer;
 }
