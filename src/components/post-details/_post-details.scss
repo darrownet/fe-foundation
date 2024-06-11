@@ -1,4 +1,4 @@
-.user-details {
+.post-details {
 
   h1 {
     font-size: 30px;
@@ -30,10 +30,6 @@
   .avatar-login {
     width: 420px;
   }
-
-  @import "./followers";
-  @import "./orgs";
-  @import "./repos";
 
   @media (max-width: $breakpoint-tablet) {
     h1 {

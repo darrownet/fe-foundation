@@ -15,7 +15,7 @@ const Posts = () => {
   const dispatch = useDispatch();
 
   const posts: IPost[] = useSelector((state: IInitialState) => state.posts.posts);
-  const selectedPost = useSelector((state: IInitialState) => state.userDetails.user);
+  const selectedPost = useSelector((state: IInitialState) => state.userDetails.post);
 
   useEffect(() => {
     if (posts.length === 0) {

@@ -1,5 +1,0 @@
-export const USER_RECEIVED: string = 'USER_RECEIVED';
-export const USER_FOLLOWERS_RECEIVED: string = 'USER_FOLLOWERS_RECEIVED';
-export const USER_ORGS_RECEIVED: string = 'USER_ORGS_RECEIVED';
-export const USER_REPOS_RECEIVED: string = 'USER_REPOS_RECEIVED';
-export const CLEAR_USER_DETAILS: string = 'CLEAR_USER_DETAILS';

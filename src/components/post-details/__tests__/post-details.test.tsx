@@ -7,7 +7,7 @@ import {act} from "@testing-library/react";
 import {commonSetup} from "../../../../tests/utils/renderComponentInApp";
 import {userFollowers, userOrgs, userRepos, users, user} from "../../../../tests/testData";
 
-import UserDetails from "../user-details";
+import UserDetails from "../post-details";
 
 import {IRequest} from "../../../../tests/utils/renderComponentInApp";
 
@@ -34,11 +34,11 @@ describe("<UserDetails />", () => {
     await act(async () => {
       const {component} = commonSetup(<UserDetails/>, initialState, requests);
       setTimeout(() => {
-        const followers = component.container.querySelectorAll('.user-details .followers li');
+        const followers = component.container.querySelectorAll('.post-details .followers li');
         expect(followers.length).toEqual(5);
-        const orgs = component.container.querySelectorAll('.user-details .orgs li');
+        const orgs = component.container.querySelectorAll('.post-details .orgs li');
         expect(orgs.length).toEqual(9);
-        const repos = component.container.querySelectorAll('.user-details .repos li');
+        const repos = component.container.querySelectorAll('.post-details .repos li');
         expect(repos.length).toEqual(30);
       }, 0);
     });

@@ -4,18 +4,18 @@ import thunk from "redux-thunk";
 
 import appReducer, {IAppState, initialAppState} from "./reducers/app-reducer";
 import postsReducer, {IPostsState, initialPostsState} from "./reducers/posts-reducer";
-import userDataReducer, {IUserDetailsState, initialUserDetailsState} from "./reducers/user-details-reducer";
+import userDataReducer, {IPostDetailsState, initialPostDetailsState} from "./reducers/post-details-reducer";
 
 export interface IInitialState {
   app: IAppState,
   posts: IPostsState;
-  userDetails: IUserDetailsState;
+  userDetails: IPostDetailsState;
 }
 
 export const initialState: IInitialState = {
   app: initialAppState,
   posts: initialPostsState,
-  userDetails: initialUserDetailsState
+  userDetails: initialPostDetailsState
 }
 
 export const rootReducer = combineReducers({
