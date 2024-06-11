@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-  padding: 0 12px;
+  padding: 0;
   background-color: $warmer;
   font-family: 'Rubik', sans-serif;;
 }
@@ -18,18 +18,15 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: capitalize;
 }
 
-h2 {
-  margin-bottom: 8px;
-  display: inline;
-  vertical-align: text-top;
-  color: $warm;
-}
-
 a {
   color: $cool;
 }
 a:hover {
   color: $neutral;
+}
+
+input {
+  width: 100%;
 }
 
 #app-root {
@@ -41,5 +38,5 @@ a:hover {
 }
 
 .content {
-  background-color: $cooler;
+  // background-color: $cooler;
 }

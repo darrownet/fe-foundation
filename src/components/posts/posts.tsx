@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 
 import {ServiceContext} from "../../core/service-context";
 
+import TypeaheadSelectBox from "../ui-elements/typeahead-select-box/typeahead-select-box";
+
 import {IconFilter} from "../icons";
 
 import {IInitialState} from "../../core/store";
@@ -48,27 +50,28 @@ const Posts = () => {
 
   return (
     <div className="posts">
-      <div className="filter-posts">
-        <div className="filter-icon">
-          <IconFilter color="#EFEEEE" height="28" width="28" />
-        </div>
-        <input name="filter-posts"
-               placeholder="filter em' here..."
-               className={filterValue.length > 0 ? 'filter-active' : ''}
-               value={filterValue} onChange={onFilterChange} />
-      </div>
-      <ul>
-        {filteredPosts.map((post) => {
-          return (
-            <li key={post.id}>
-              <Link to={`/${post.id}`}>
-                <h3>{post.title}</h3>
-                <p>{post.body}</p>
-              </Link>
-            </li>
-          );
-        })}
-      </ul>
+      {/*<div className="filter-posts">*/}
+      {/*  <div className="filter-icon">*/}
+      {/*    <IconFilter color="#EFEEEE" height="28" width="28" />*/}
+      {/*  </div>*/}
+      {/*  <input name="filter-posts"*/}
+      {/*         placeholder="filter em' here..."*/}
+      {/*         className={filterValue.length > 0 ? 'filter-active' : ''}*/}
+      {/*         value={filterValue} onChange={onFilterChange} />*/}
+      {/*</div>*/}
+      {/*<ul>*/}
+      {/*  {filteredPosts.map((post) => {*/}
+      {/*    return (*/}
+      {/*      <li key={post.id}>*/}
+      {/*        <Link to={`/${post.id}`}>*/}
+      {/*          <h3>{post.title}</h3>*/}
+      {/*          <p>{post.body}</p>*/}
+      {/*        </Link>*/}
+      {/*      </li>*/}
+      {/*    );*/}
+      {/*  })}*/}
+      {/*</ul>*/}
+      <TypeaheadSelectBox options={posts} />
     </div>
   );
 };
