@@ -12,7 +12,7 @@ describe('<Navigation />', () => {
 
   test('should render the navigation component with a root path of /', () => {
     render(<MemoryRouter initialEntries={['/']}><Navigation/></MemoryRouter>);
-    const p = screen.getByText('list of github users');
+    const p = screen.getByText('list of github posts');
     const span = screen.getByText('...in 80s Brutalist Deco');
     expect(p).toBeInTheDocument();
     expect(span).toBeInTheDocument();

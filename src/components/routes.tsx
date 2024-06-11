@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Routes, Route, useLocation} from "react-router-dom";
-import Users from "./users/users";
+import Posts from "./posts/posts";
 import UserDetails from "./user-details/user-details";
 
 const AppRoutes = () => {
@@ -14,7 +14,7 @@ const AppRoutes = () => {
   return (
     <div className="content">
       <Routes>
-        <Route path="/" element={<Users/>}/>
+        <Route path="/" element={<Posts/>}/>
         <Route path="/:login" element={<UserDetails/>}/>
       </Routes>
     </div>

@@ -1,11 +1,11 @@
 import {IFollower} from "./Follower";
 import {IOrg} from "./Org";
 import {IRepo} from "./Repo";
-import {IUser} from "./User";
+import {IPost} from "./Post";
 
 export type {
   IFollower,
   IOrg,
   IRepo,
-  IUser
+  IPost
 }

@@ -1,24 +1,23 @@
-import * as types from "./users-action-types";
+import * as types from "./posts-action-types";
 import {IDataService} from "../../services/data.service";
 import {AxiosError, AxiosResponse} from "axios";
-
 import {appActionCreators} from "../app/app-action-creators";
 
-interface IUsersActionCreators {
-  asyncRequestUsers: Function,
+interface IPostsActionCreators {
+  asyncRequestPosts: Function,
   asyncDataResponse: Function,
 }
 
-interface IUsersActionCreatorsParams {
+interface IPostsActionCreatorsParams {
   dataService: IDataService
 }
 
-export function usersActionCreators(params: IUsersActionCreatorsParams): IUsersActionCreators {
+export function postsActionCreators(params: IPostsActionCreatorsParams): IPostsActionCreators {
   const {dataService} = params;
   const {appRequestError} = appActionCreators();
-  const errorStr = "There was an error loading the list of github users.";
+  const errorStr = "There was an error loading the list of posts.";
 
-  function asyncRequestUsers() {
+  function asyncRequestPosts() {
     return (dispatch: DispatchType) => {
       const onError = (error: Error) => {
         dispatch(appRequestError(errorStr));
@@ -29,17 +28,17 @@ export function usersActionCreators(params: IUsersActionCreatorsParams): IUsersA
       const onSuccess = (response: AxiosResponse) => {
         dispatch(asyncDataResponse(response.data));
       }
-      dataService.get('users').then(onSuccess, onFail).catch(onError);
+      dataService.get('posts').then(onSuccess, onFail).catch(onError);
     }
   }
 
   function asyncDataResponse(payload: object) {
     return {
-      type: types.USERS_RECEIVED,
+      type: types.POSTS_RECEIVED,
       payload
     }
   }
 
-  return {asyncRequestUsers, asyncDataResponse}
+  return {asyncRequestPosts, asyncDataResponse}
 
 }

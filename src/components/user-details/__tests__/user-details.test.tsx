@@ -26,10 +26,10 @@ describe("<UserDetails />", () => {
       users: {users: users}
     }
     const requests: IRequest[] = [
-      {method: 'get', route: '/users/mojodna', response: user},
-      {method: 'get', route: '/users/mojodna/followers', response: userFollowers},
-      {method: 'get', route: '/users/mojodna/orgs', response: userOrgs},
-      {method: 'get', route: '/users/mojodna/repos', response: userRepos},
+      {method: 'get', route: '/posts/mojodna', response: user},
+      {method: 'get', route: '/posts/mojodna/followers', response: userFollowers},
+      {method: 'get', route: '/posts/mojodna/orgs', response: userOrgs},
+      {method: 'get', route: '/posts/mojodna/repos', response: userRepos},
     ];
     await act(async () => {
       const {component} = commonSetup(<UserDetails/>, initialState, requests);

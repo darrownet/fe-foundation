@@ -1,5 +1,5 @@
 import {appActionCreators} from "../actions/app/app-action-creators";
-import {usersActionCreators} from "../actions/users/users-action-creators";
+import {postsActionCreators} from "../actions/posts/posts-action-creators";
 import {userDetailsActionCreators} from "../actions/user-details/user-details-action-creators";
 import {dataService, IDataService} from "./data.service";
 
@@ -9,7 +9,7 @@ export const ServicesCreator = {
     return {
       actionServices: {
         app: appActionCreators(),
-        users: usersActionCreators({dataService: dataServiceInstance}),
+        posts: postsActionCreators({dataService: dataServiceInstance}),
         userDetails: userDetailsActionCreators({dataService: dataServiceInstance})
       },
       dataService: dataServiceInstance

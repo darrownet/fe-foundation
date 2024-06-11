@@ -1,12 +1,12 @@
 import * as types from "../actions/user-details/user-details-action-types";
-import {IFollower, IRepo, IOrg, IUser} from "../schemas";
+import {IFollower, IRepo, IOrg, IPost} from "../schemas";
 
 export interface IUserDetailsState {
   error: object | undefined;
   followers: IFollower[];
   repos: IRepo[];
   orgs: IOrg[];
-  user: IUser | undefined;
+  user: IPost | undefined;
 }
 
 export const initialUserDetailsState: IUserDetailsState = {

@@ -10,10 +10,12 @@ html, body {
 body {
   padding: 0 12px;
   background-color: $warmer;
+  font-family: 'Rubik', sans-serif;;
 }
 
-h1, h2, a {
-  font-family: 'Press Start 2P';
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Patua One', serif;
+  text-transform: capitalize;
 }
 
 h2 {
@@ -24,7 +26,6 @@ h2 {
 }
 
 a {
-  font-family: 'Press Start 2P', serif;
   color: $cool;
   img {
     border-color: $cool;
@@ -39,7 +40,6 @@ a:hover {
 
 #app-root {
   color: $neutral;
-  font-family: sans-serif;
   width: 100%;
   height: inherit;
   max-width: 1280px;
@@ -48,5 +48,5 @@ a:hover {
 
 .content {
   background-color: $cooler;
-  border: 6px dashed $warmer;
+  //border: 6px dashed $warmer;
 }

@@ -1,4 +1,4 @@
-.users {
+.posts {
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -11,22 +11,17 @@
   }
   a {
     display: flex;
+    flex-direction: column;
     align-items: center;
     font-size: 18px;
     padding: 10px 10px 10px 24px;
     border-radius: 60px;
-    img {
-      width: 96px;
-      margin-right: 16px;
-      border-radius: 50%;
-      border: 1px solid;
-    }
   }
   a:hover {
     background-color: rgba($neutral,0.25);
   }
 
-  .filter-users {
+  .filter-posts {
     position: relative;
     padding: 20px;
     input {

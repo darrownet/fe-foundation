@@ -3,24 +3,24 @@ import {configureStore} from "@reduxjs/toolkit"
 import thunk from "redux-thunk";
 
 import appReducer, {IAppState, initialAppState} from "./reducers/app-reducer";
-import usersReducer, {IUsersState, initialUsersState} from "./reducers/users-reducer";
+import postsReducer, {IPostsState, initialPostsState} from "./reducers/posts-reducer";
 import userDataReducer, {IUserDetailsState, initialUserDetailsState} from "./reducers/user-details-reducer";
 
 export interface IInitialState {
   app: IAppState,
-  users: IUsersState;
+  posts: IPostsState;
   userDetails: IUserDetailsState;
 }
 
 export const initialState: IInitialState = {
   app: initialAppState,
-  users: initialUsersState,
+  posts: initialPostsState,
   userDetails: initialUserDetailsState
 }
 
 export const rootReducer = combineReducers({
   app: appReducer,
-  users: usersReducer,
+  posts: postsReducer,
   userDetails: userDataReducer
 });
 
