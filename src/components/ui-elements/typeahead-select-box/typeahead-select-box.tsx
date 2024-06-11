@@ -1,7 +1,6 @@
-import { FC, MouseEvent, FormEvent, useState } from 'react';
+import { FC, FormEvent, useState } from 'react';
 import {IPost} from "../../../core/schemas";
 import {Link} from "react-router-dom";
-import {FALSE} from "sass";
 
 interface ITypeaheadSelectBox {
   options: IPost[];
@@ -50,7 +49,7 @@ const TypeaheadSelectBox:FC<ITypeaheadSelectBox> = ({ options }) => {
               onChange={onInputChange}
               placeholder="select a post or search here.."
           />
-          <i className={`select-aff${showAllPosts ? ' open' : ' closed'}`} onClick={onSelectClick}></i>
+          <i className={`select-aff${filteredOptions.length > 1 ? ' suggestions' : (showAllPosts ? ' open' : ' closed')}`} onClick={onSelectClick}></i>
         </div>
         {showOptions && (
             <ul className="options-list">

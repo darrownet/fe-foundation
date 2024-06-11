@@ -37,25 +37,23 @@
       cursor: pointer;
       font-size: 2em;
     }
-    .select-aff.closed {
-      rotate: 90deg;
-    }
-    .select-aff.closed::after{
+    .select-aff::after {
       content: '>';
       display: block;
-      text-align: center;
       width: 100%;
       height: 100%;
+      text-align: center;
+    }
+    .select-aff.closed {
+      rotate: 90deg;
     }
     .select-aff.open {
       rotate: -90deg;
     }
-    .select-aff.open::after{
-      content: '>';
-      display: block;
-      text-align: center;
-      width: 100%;
-      height: 100%;
+    .select-aff.suggestions::after{
+      content: 'X';
+      font-size: 0.9em;
+      padding-top: 5px;
     }
   }
 }
