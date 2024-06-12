@@ -26,19 +26,39 @@ const PostDetails = () => {
   }, []);
 
   return (
-    <div className="user-details">
+    <div className="post-details">
       <h1>{selectedPost?.title}</h1>
-      <p>{selectedPost?.body}</p>
-      <ul>
-        {selectedPostComments?.map((comment:IComment) => {
-          return (
-              <li key={comment.id}>
-                <p>{comment.name}</p>
-                <p>{comment.body}</p>
-              </li>
-          );
-        })}
-      </ul>
+      <p className="post-body">{selectedPost?.body}</p>
+      <h2>Comments:</h2>
+      <div className="comments">
+        <ul>
+          {selectedPostComments?.map((comment: IComment) => {
+            return (
+                <li className="comment" key={comment.id}>
+                  <p>{comment.name}</p>
+                  <p>{comment.body}</p>
+                </li>
+            );
+          })}
+        </ul>
+        <form>
+          <div>
+            <label htmlFor="name">Name:</label>
+            <input name="name" type="test"/>
+          </div>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input name="email" type="email"/>
+          </div>
+          <div>
+            <label htmlFor="comment">Comment:</label>
+            <textarea name="comment"></textarea>
+          </div>
+          <div>
+            <input name="email" type="submit" value="post"/>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

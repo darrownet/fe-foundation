@@ -1,34 +1,36 @@
 .post-details {
 
+  padding: 42px;
+
   h1 {
     font-size: 30px;
     margin-bottom: 24px;
     margin-top: -56px;
     margin-left: 10px;
-    text-shadow: 2px 2px $cooler;
-    color: $warmer;
+    text-shadow: 1px 1px $cool;
+    color: $cooler;
   }
 
-  img {
-    width: 100%;
-    height: 100%;
-    border-right: 6px dashed $warmer;
-    border-bottom: 6px dashed $warmer;
-    border-top: 6px solid #F26627;
-    border-left: 6px solid #F26627;
-    margin-top: -6px;
-    margin-left: -6px;
-    box-sizing: content-box;
+  input, textarea {
+    border: 1px solid $cooler;
   }
 
-  .avatar-orgs {
+  .comments {
     display: flex;
-    height: 420px;
-    margin-bottom: 8px;
+    form, ul {
+      width: 50%;
+    }
+    ul {
+      padding-right: 21px;
+    }
   }
 
-  .avatar-login {
-    width: 420px;
+  .comment {
+    margin-bottom: 10px;
+  }
+
+  .post-body {
+    margin-bottom: 42px;
   }
 
   @media (max-width: $breakpoint-tablet) {
@@ -51,35 +53,6 @@
       padding: 12px;
       margin-bottom: 0;
       color: $warm;
-    }
-    .avatar-orgs {
-      flex-direction: column;
-      height: 100%;
-      margin-bottom: 0;
-
-    }
-    .avatar-login {
-      width: 100%;
-
-      img {
-        display: block;
-        position: absolute;
-        width: 120px;
-        height: 120px;
-        top: 0;
-        right: 0;
-        margin-top: 0;
-        margin-left: 0;
-        margin-right: 6px;
-        paffing: 6px;
-        border-width: 0;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-        border-bottom: none;
-        box-sizing: border-box;
-        padding: 12px;
-      }
     }
   }
 

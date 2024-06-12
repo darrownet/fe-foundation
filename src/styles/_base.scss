@@ -27,6 +27,13 @@ a:hover {
 
 input {
   width: 100%;
+  border: none;
+}
+
+textarea {
+  display: block;
+  background: white;
+  width: 100%;
 }
 
 #app-root {
