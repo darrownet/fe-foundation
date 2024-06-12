@@ -9,19 +9,19 @@ import userDataReducer, {IPostDetailsState, initialPostDetailsState} from "./red
 export interface IInitialState {
   app: IAppState,
   posts: IPostsState;
-  userDetails: IPostDetailsState;
+  postDetails: IPostDetailsState;
 }
 
 export const initialState: IInitialState = {
   app: initialAppState,
   posts: initialPostsState,
-  userDetails: initialPostDetailsState
+  postDetails: initialPostDetailsState
 }
 
 export const rootReducer = combineReducers({
   app: appReducer,
   posts: postsReducer,
-  userDetails: userDataReducer
+  postDetails: userDataReducer
 });
 
 export const generateStore = () => {

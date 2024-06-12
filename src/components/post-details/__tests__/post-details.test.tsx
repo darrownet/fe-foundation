@@ -7,9 +7,10 @@ import {act} from "@testing-library/react";
 import {commonSetup} from "../../../../tests/utils/renderComponentInApp";
 import {userFollowers, userOrgs, userRepos, users, user} from "../../../../tests/testData";
 
-import UserDetails from "../post-details";
+import PostDetails from "../post-details";
 
 import {IRequest} from "../../../../tests/utils/renderComponentInApp";
+
 
 const mockParams = {
   login: 'mojodna',
@@ -19,7 +20,7 @@ jest.mock('react-router-dom', () => ({
   useParams: () => mockParams,
 }));
 
-describe("<UserDetails />", () => {
+describe("<PostDetails />", () => {
 
   test("should render the User Details Component with followers, orgs, and repos", async () => {
     const initialState = {
@@ -32,7 +33,7 @@ describe("<UserDetails />", () => {
       {method: 'get', route: '/posts/mojodna/repos', response: userRepos},
     ];
     await act(async () => {
-      const {component} = commonSetup(<UserDetails/>, initialState, requests);
+      const {component} = commonSetup(<PostDetails/>, initialState, requests);
       setTimeout(() => {
         const followers = component.container.querySelectorAll('.post-details .followers li');
         expect(followers.length).toEqual(5);

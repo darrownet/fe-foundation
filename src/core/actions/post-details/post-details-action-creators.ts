@@ -14,19 +14,8 @@ interface IPostDetailsActionCreatorsParams {
   dataService: IDataService
 }
 
-enum ActionTypeValues {
-  clear = 'clear',
-  post = 'post'
-}
-
 interface IAsyncPostDataRequest {
-  actionTypeValue: ActionTypeValues;
-  route: string;
-}
-
-const actionTypeMap = {
-  clear: types.CLEAR_POST_DETAILS,
-  post: types.POST_RECEIVED
+  postId: number;
 }
 
 export function postDetailsActionCreators(params: IPostDetailsActionCreatorsParams): IPostDetailsActionCreators {
@@ -43,9 +32,9 @@ export function postDetailsActionCreators(params: IPostDetailsActionCreatorsPara
         dispatch(appRequestError(errorStr));
       }
       const onSuccess = (response: AxiosResponse) => {
-        dispatch(asyncPostDataResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
+        dispatch(asyncPostDataResponse(types.POST_RECEIVED, response.data));
       }
-      dataService.get(reqParams.route).then(onSuccess, onFail).catch(onError);
+      dataService.get(`posts/${reqParams.postId}`).then(onSuccess, onFail).catch(onError);
     }
   }
 

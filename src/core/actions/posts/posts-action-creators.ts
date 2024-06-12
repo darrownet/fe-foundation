@@ -22,7 +22,7 @@ export function postsActionCreators(params: IPostsActionCreatorsParams): IPostsA
       const onError = (error: Error) => {
         dispatch(appRequestError(errorStr));
       }
-      const onFail = (error: AxiosError) => {
+      const onFail = () => {
         dispatch(appRequestError(errorStr));
       }
       const onSuccess = (response: AxiosResponse) => {

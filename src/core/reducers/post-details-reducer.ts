@@ -1,4 +1,4 @@
-import * as types from "../actions/user-details/post-details-action-types";
+import * as types from "../actions/post-details/post-details-action-types";
 import {IPost} from "../schemas";
 
 export interface IPostDetailsState {
@@ -14,7 +14,7 @@ export const initialPostDetailsState: IPostDetailsState = {
 const postDetailsReducer = (state: IPostDetailsState = initialPostDetailsState, action: AppAction): IPostDetailsState => {
   switch (action.type) {
     case types.POST_RECEIVED:
-      return <IPostDetailsState>{...state, ...{user: action.payload}};
+      return <IPostDetailsState>{...state, ...{post: action.payload}};
     case types.CLEAR_POST_DETAILS:
       return <IPostDetailsState>{...state, ...{post: undefined}};
     default:

@@ -31,7 +31,7 @@ describe("<Posts />", () => {
   });
 
   test("should render the Posts Component and clear a selected user if one is stored in state", async () => {
-    const initialState = {userDetails:{user}}
+    const initialState = {postDetails:{user}}
     const requests: IRequest[] = [
       {method: 'get', route: 'users', response: users},
     ]

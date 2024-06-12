@@ -6,14 +6,13 @@ import {useParams} from 'react-router-dom';
 import {ServiceContext} from "../../core/service-context";
 
 import {IInitialState} from "../../core/store";
-import {IPost} from "../../core/schemas";
 
 const PostDetails = () => {
 
-  const actions = useContext(ServiceContext).actions.userDetails;
+  const actions = useContext(ServiceContext).actions.postDetails;
   const dispatch = useDispatch();
 
-  const selectedPost = useSelector((state: IInitialState) => state.userDetails.post);
+  const selectedPost = useSelector((state: IInitialState) => state.postDetails.post);
 
   const navigate = useNavigate();
   const params = useParams();
@@ -30,7 +29,7 @@ const PostDetails = () => {
     //   dispatch(actions.asyncUserDataRequest({actionTypeValue: 'orgs', route: `/users/${login}/orgs`}));
     //   dispatch(actions.asyncUserDataRequest({actionTypeValue: 'repos', route: `/users/${login}/repos`}));
     // }
-    console.log(postId);
+    dispatch(actions.asyncPostDataRequest({postId}));
   }, []);
 
   return (

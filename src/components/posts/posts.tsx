@@ -11,18 +11,18 @@ import {IPost} from "../../core/schemas";
 const Posts = () => {
 
   const postsAction = useContext(ServiceContext).actions.posts;
-  const postDetailsAction = useContext(ServiceContext).actions.userDetails;
+  const postDetailsAction = useContext(ServiceContext).actions.postDetails;
   const dispatch = useDispatch();
 
   const posts: IPost[] = useSelector((state: IInitialState) => state.posts.posts);
-  const selectedPost = useSelector((state: IInitialState) => state.userDetails.post);
+  const selectedPost = useSelector((state: IInitialState) => state.postDetails.post);
 
   useEffect(() => {
     if (posts.length === 0) {
       dispatch(postsAction.asyncRequestPosts());
     }
     if (selectedPost) {
-      dispatch(postDetailsAction.clearUserDetails());
+      dispatch(postDetailsAction.clearPostDetails());
     }
   }, []);
 
