@@ -1,11 +1,8 @@
-import {IFollower} from "./Follower";
-import {IOrg} from "./Org";
-import {IRepo} from "./Repo";
+import {IComment} from "./Comment";
+
 import {IPost} from "./Post";
 
 export type {
-  IFollower,
-  IOrg,
-  IRepo,
+  IComment,
   IPost
 }

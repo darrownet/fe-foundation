@@ -6,6 +6,7 @@ import {useParams} from 'react-router-dom';
 import {ServiceContext} from "../../core/service-context";
 
 import {IInitialState} from "../../core/store";
+import {IComment} from "../../core/schemas";
 
 const PostDetails = () => {
 
@@ -13,36 +14,31 @@ const PostDetails = () => {
   const dispatch = useDispatch();
 
   const selectedPost = useSelector((state: IInitialState) => state.postDetails.post);
+  const selectedPostComments = useSelector((state: IInitialState) => state.postDetails.comments);
 
   const navigate = useNavigate();
   const params = useParams();
   const [postId] = useState(params.postId);
 
   useEffect(() => {
-    // if (users) {
-    //   const user = users.find((user) => user.login === login);
-    //   if (!user) {
-    //     navigate("/");
-    //   }
-    //   dispatch(actions.asyncUserDataRequest({actionTypeValue: 'user', route: `/users/${login}`}));
-    //   dispatch(actions.asyncUserDataRequest({actionTypeValue: 'followers', route: `/users/${login}/followers`}));
-    //   dispatch(actions.asyncUserDataRequest({actionTypeValue: 'orgs', route: `/users/${login}/orgs`}));
-    //   dispatch(actions.asyncUserDataRequest({actionTypeValue: 'repos', route: `/users/${login}/repos`}));
-    // }
-    dispatch(actions.asyncPostDataRequest({postId}));
+    dispatch(actions.asyncPostDataRequest({actionTypeValue: 'post', route: `/posts/${postId}`}));
+    dispatch(actions.asyncPostDataRequest({actionTypeValue: 'comments', route: `/comments?postId=${postId}`}));
   }, []);
 
   return (
     <div className="user-details">
-      {/*<div className="avatar-orgs">*/}
-      {/*  <div className="avatar-login">*/}
-      {/*    <img src={selectedUser && selectedUser.avatar_url}/>*/}
-      {/*    <h1>{selectedUser && selectedUser.login}</h1>*/}
-      {/*  </div>*/}
-      {/*  {orgs.length > 0 && <Orgs orgs={orgs}/>}*/}
-      {/*</div>*/}
-      {/*{followers.length > 0 && <Followers count={selectedUser ? selectedUser.followers : 0} followers={followers}/>}*/}
-      {/*{repos.length > 0 && <Repos repos={repos}/>}*/}
+      <h1>{selectedPost?.title}</h1>
+      <p>{selectedPost?.body}</p>
+      <ul>
+        {selectedPostComments?.map((comment:IComment) => {
+          return (
+              <li key={comment.id}>
+                <p>{comment.name}</p>
+                <p>{comment.body}</p>
+              </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

@@ -9,7 +9,7 @@ export const ServicesCreator = {
     return {
       actionServices: {
         app: appActionCreators(),
-        posts: postsActionCreators({dataService: dataServiceInstance}),
+        allPosts: postsActionCreators({dataService: dataServiceInstance}),
         postDetails: postDetailsActionCreators({dataService: dataServiceInstance})
       },
       dataService: dataServiceInstance

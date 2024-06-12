@@ -18,6 +18,22 @@ interface IAsyncPostDataRequest {
   postId: number;
 }
 
+enum ActionTypeValues {
+  comments = 'comments',
+  post = 'post',
+}
+
+interface IAsyncPostDataRequest {
+  actionTypeValue: ActionTypeValues;
+  route: string;
+}
+
+const actionTypeMap = {
+  clear: types.CLEAR_POST_DETAILS,
+  comments: types.COMMENTS_RECEIVED,
+  post: types.POST_RECEIVED
+}
+
 export function postDetailsActionCreators(params: IPostDetailsActionCreatorsParams): IPostDetailsActionCreators {
   const {dataService} = params;
   const {appRequestError} = appActionCreators();
@@ -32,9 +48,9 @@ export function postDetailsActionCreators(params: IPostDetailsActionCreatorsPara
         dispatch(appRequestError(errorStr));
       }
       const onSuccess = (response: AxiosResponse) => {
-        dispatch(asyncPostDataResponse(types.POST_RECEIVED, response.data));
+        dispatch(asyncPostDataResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
       }
-      dataService.get(`posts/${reqParams.postId}`).then(onSuccess, onFail).catch(onError);
+      dataService.get(reqParams.route).then(onSuccess, onFail).catch(onError);
     }
   }
 

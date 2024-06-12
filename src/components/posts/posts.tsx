@@ -10,11 +10,11 @@ import {IPost} from "../../core/schemas";
 
 const Posts = () => {
 
-  const postsAction = useContext(ServiceContext).actions.posts;
+  const postsAction = useContext(ServiceContext).actions.allPosts;
   const postDetailsAction = useContext(ServiceContext).actions.postDetails;
   const dispatch = useDispatch();
 
-  const posts: IPost[] = useSelector((state: IInitialState) => state.posts.posts);
+  const posts: IPost[] = useSelector((state: IInitialState) => state.allPosts.posts);
   const selectedPost = useSelector((state: IInitialState) => state.postDetails.post);
 
   useEffect(() => {
