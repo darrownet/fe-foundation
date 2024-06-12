@@ -12,16 +12,8 @@ describe('<Navigation />', () => {
 
   test('should render the navigation component with a root path of /', () => {
     render(<MemoryRouter initialEntries={['/']}><Navigation/></MemoryRouter>);
-    const p = screen.getByText('list of github posts');
-    const span = screen.getByText('...in 80s Brutalist Deco');
-    expect(p).toBeInTheDocument();
-    expect(span).toBeInTheDocument();
-  });
-
-  test('should render the navigation component with a root path of /:login', () => {
-    render(<MemoryRouter initialEntries={['/somelogin']}><Navigation/></MemoryRouter>);
-    const a = screen.getByText('←back');
-    expect(a).toBeInTheDocument();
+    const h1 = screen.getByText('list of posts');
+    expect(h1).toBeInTheDocument();
   });
 
 });

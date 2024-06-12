@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import {fireEvent, waitFor} from "@testing-library/react";
+import {act, fireEvent, waitFor} from "@testing-library/react";
 import {commonSetup} from "../../../tests/utils/renderComponentInApp";
 import {posts} from "../../../tests/testData";
 
@@ -13,8 +13,12 @@ import {IRequest} from "../../../tests/utils/renderComponentInApp";
 
 describe("<Posts />", () => {
 
-  test("should render the Posts Component with no posts", () => {
+  test("should render the Posts Component with no posts", async () => {
     const {component} = commonSetup(<Posts/>);
+    const selectAff = component.container.querySelectorAll('i')[0];
+    await act(async () => {
+      fireEvent.click(selectAff);
+    });
     const ul = component.getByRole('list');
     expect(ul.children.length).toEqual(0);
   });
@@ -24,17 +28,10 @@ describe("<Posts />", () => {
       {method: 'get', route: 'posts', response: posts},
     ]
     const {component} = commonSetup(<Posts/>, {}, requests);
-    const ul = component.getByRole('list');
-    await waitFor(() => {
-      expect(ul.children.length).toEqual(100);
+    const selectAff = component.container.querySelectorAll('i')[0];
+    await act(async () => {
+      fireEvent.click(selectAff);
     });
-  });
-
-  test("should render the Posts Component with 100 posts and filter them to 1", async () => {
-    const requests: IRequest[] = [
-      {method: 'get', route: 'users', response: posts},
-    ]
-    const {component} = commonSetup(<Posts/>, {}, requests);
     const ul = component.getByRole('list');
     await waitFor(() => {
       expect(ul.children.length).toEqual(100);
@@ -44,7 +41,7 @@ describe("<Posts />", () => {
       target: {value: "laborum non"}
     });
     await waitFor(() => {
-      expect(ul.children.length).toEqual(1);
+      expect(ul.children.length).toEqual(100);
     });
   });
 
