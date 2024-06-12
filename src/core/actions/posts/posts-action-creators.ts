@@ -4,8 +4,8 @@ import {AxiosError, AxiosResponse} from "axios";
 import {appActionCreators} from "../app/app-action-creators";
 
 interface IPostsActionCreators {
-  asyncRequestPosts: Function,
-  asyncDataResponse: Function,
+  asyncPostsRequest: Function,
+  asyncPostsResponse: Function,
 }
 
 interface IPostsActionCreatorsParams {
@@ -17,7 +17,7 @@ export function postsActionCreators(params: IPostsActionCreatorsParams): IPostsA
   const {appRequestError} = appActionCreators();
   const errorStr = "There was an error loading the list of posts.";
 
-  function asyncRequestPosts() {
+  function asyncPostsRequest() {
     return (dispatch: DispatchType) => {
       const onError = (error: Error) => {
         dispatch(appRequestError(errorStr));
@@ -26,19 +26,19 @@ export function postsActionCreators(params: IPostsActionCreatorsParams): IPostsA
         dispatch(appRequestError(errorStr));
       }
       const onSuccess = (response: AxiosResponse) => {
-        dispatch(asyncDataResponse(response.data));
+        dispatch(asyncPostsResponse(response.data));
       }
       dataService.get('posts').then(onSuccess, onFail).catch(onError);
     }
   }
 
-  function asyncDataResponse(payload: object) {
+  function asyncPostsResponse(payload: object) {
     return {
       type: types.POSTS_RECEIVED,
       payload
     }
   }
 
-  return {asyncRequestPosts, asyncDataResponse}
+  return {asyncPostsRequest, asyncPostsResponse}
 
 }

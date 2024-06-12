@@ -5,9 +5,9 @@ import {AxiosError, AxiosResponse} from "axios";
 import {appActionCreators} from "../app/app-action-creators";
 
 interface IPostDetailsActionCreators {
-  asyncPostDataRequest: Function,
-  asyncPostDataResponse: Function,
-  clearPostDetails: Function
+  asyncPostRequest: Function,
+  asyncPostResponse: Function,
+  clearPosts: Function
 }
 
 interface IPostDetailsActionCreatorsParams {
@@ -39,7 +39,7 @@ export function postDetailsActionCreators(params: IPostDetailsActionCreatorsPara
   const {appRequestError} = appActionCreators();
   const errorStr = "There was an error loading the data for the selected post.";
 
-  function asyncPostDataRequest(reqParams: IAsyncPostDataRequest) {
+  function asyncPostRequest(reqParams: IAsyncPostDataRequest) {
     return (dispatch: DispatchType) => {
       const onError = (error: Error) => {
         dispatch(appRequestError(errorStr));
@@ -48,22 +48,22 @@ export function postDetailsActionCreators(params: IPostDetailsActionCreatorsPara
         dispatch(appRequestError(errorStr));
       }
       const onSuccess = (response: AxiosResponse) => {
-        dispatch(asyncPostDataResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
+        dispatch(asyncPostResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
       }
       dataService.get(reqParams.route).then(onSuccess, onFail).catch(onError);
     }
   }
 
-  function asyncPostDataResponse(type: string, payload: object): AppAction {
+  function asyncPostResponse(type: string, payload: object): AppAction {
     return {type, payload}
   }
 
-  function clearPostDetails(): AppAction {
+  function clearPosts(): AppAction {
     return {
       type: types.CLEAR_POST_DETAILS
     }
   }
 
-  return {asyncPostDataRequest, asyncPostDataResponse, clearPostDetails}
+  return {asyncPostRequest, asyncPostResponse, clearPosts}
 
 }

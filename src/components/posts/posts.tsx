@@ -19,10 +19,10 @@ const Posts = () => {
 
   useEffect(() => {
     if (posts.length === 0) {
-      dispatch(postsAction.asyncRequestPosts());
+      dispatch(postsAction.asyncPostsRequest());
     }
     if (selectedPost) {
-      dispatch(postDetailsAction.clearPostDetails());
+      dispatch(postDetailsAction.clearPosts());
     }
   }, []);
 

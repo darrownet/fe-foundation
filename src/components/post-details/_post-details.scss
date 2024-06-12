@@ -1,27 +1,55 @@
 .post-details {
-
   padding: 42px;
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+  }
 
   input, textarea {
     border: 1px solid $cooler;
+    border-radius: 8px;
     color: $cooler;
     outline: none;
     padding: 8px;
   }
 
+  input[type="submit"] {
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.95);
+  }
+  input[type="submit"]:hover {
+    background: rgba(255, 255, 255, .85);
+  }
+
   textarea {
-    height: 120px;
+    height: 140px;
   }
 
   .comments {
     display: flex;
+    margin-top: 24px;
 
     form, ul {
       width: 50%;
     }
 
+    form {
+      border: 1px solid $cooler;
+      border-radius: 8px;
+      padding: 16px;
+    }
+
     ul {
       padding-right: 21px;
+      li {
+        border-bottom: 1px solid $cool;
+        padding-bottom: 10px;
+      }
+      li:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
     }
   }
 
@@ -30,11 +58,11 @@
   }
 
   .label-input, .label-textarea, .label-submit {
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 
   .post-body {
-    margin-bottom: 42px;
+    margin-bottom: 16px;
   }
 
 }

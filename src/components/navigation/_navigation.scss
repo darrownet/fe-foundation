@@ -6,9 +6,13 @@
   padding: 10px 20px;
   background-color: $warmer;
 
+  a {
+    text-decoration: underline;
+  }
+
   li {
     font-size: 36px;
-    font-family: 'Press Start 2P';
+    font-family: 'Patua One', sans-serif;
   }
 
   h1 {

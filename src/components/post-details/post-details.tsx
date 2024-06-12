@@ -39,8 +39,8 @@ const PostDetails = () => {
   }
 
   useEffect(() => {
-    dispatch(actions.asyncPostDataRequest({actionTypeValue: 'post', route: `/posts/${postId}`}));
-    dispatch(actions.asyncPostDataRequest({actionTypeValue: 'comments', route: `/comments?postId=${postId}`}));
+    dispatch(actions.asyncPostRequest({actionTypeValue: 'post', route: `/posts/${postId}`}));
+    dispatch(actions.asyncPostRequest({actionTypeValue: 'comments', route: `/comments?postId=${postId}`}));
   }, []);
 
   return (
@@ -60,6 +60,7 @@ const PostDetails = () => {
           })}
         </ul>
         <form onSubmit={onFormSubmit}>
+          <h3>post a comment!</h3>
           <div className="label-input">
             <label htmlFor="name">Name:</label>
             <input name="name" type="test" onChange={(event) => onFieldChange(event, 'name')}/>
