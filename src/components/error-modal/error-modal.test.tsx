@@ -3,9 +3,9 @@
  */
 
 import React from "react";
-import {commonSetup} from "../../../../tests/utils/renderComponentInApp";
+import {commonSetup} from "../../../tests/utils/renderComponentInApp";
 
-import ErrorModal from "../error-modal";
+import ErrorModal from "./error-modal";
 
 describe("<ErrorModal />", () => {
 

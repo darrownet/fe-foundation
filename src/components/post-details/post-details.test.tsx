@@ -4,16 +4,16 @@
 
 import React from "react";
 import {act} from "@testing-library/react";
-import {commonSetup} from "../../../../tests/utils/renderComponentInApp";
-import {userFollowers, userOrgs, userRepos, users, user} from "../../../../tests/testData";
+import {commonSetup} from "../../../tests/utils/renderComponentInApp";
+import {comments, post} from "../../../tests/testData";
 
-import PostDetails from "../post-details";
+import PostDetails from "./post-details";
 
-import {IRequest} from "../../../../tests/utils/renderComponentInApp";
+import {IRequest} from "../../../tests/utils/renderComponentInApp";
 
 
 const mockParams = {
-  login: 'mojodna',
+  postId: '3',
 };
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),
@@ -22,15 +22,13 @@ jest.mock('react-router-dom', () => ({
 
 describe("<PostDetails />", () => {
 
-  test("should render the User Details Component with followers, orgs, and repos", async () => {
+  test("should render the Post Details Component with comments", async () => {
     const initialState = {
-      users: {users: users}
+      postDetails: {comments, post}
     }
     const requests: IRequest[] = [
-      {method: 'get', route: '/posts/mojodna', response: user},
-      {method: 'get', route: '/posts/mojodna/followers', response: userFollowers},
-      {method: 'get', route: '/posts/mojodna/orgs', response: userOrgs},
-      {method: 'get', route: '/posts/mojodna/repos', response: userRepos},
+      {method: 'get', route: '/posts/3', response: post},
+      {method: 'get', route: '/comments?postId=3', response: comments}
     ];
     await act(async () => {
       const {component} = commonSetup(<PostDetails/>, initialState, requests);
