@@ -16,7 +16,7 @@ export const initialPostDetailsState: IPostDetailsState = {
 const postDetailsReducer = (state: IPostDetailsState = initialPostDetailsState, action: AppAction): IPostDetailsState => {
   switch (action.type) {
     case types.CLEAR_POST_DETAILS:
-      return <IPostDetailsState>{...state, ...{comments: undefined, allPosts: undefined}};
+      return <IPostDetailsState>{...state, ...{comments: undefined, post: undefined}};
     case types.COMMENTS_RECEIVED:
       return <IPostDetailsState>{...state, ...{comments: action.payload}};
     case types.POST_RECEIVED:
