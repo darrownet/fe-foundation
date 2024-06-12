@@ -2,15 +2,6 @@
 
   padding: 42px;
 
-  h1 {
-    font-size: 30px;
-    margin-bottom: 24px;
-    margin-top: -56px;
-    margin-left: 10px;
-    text-shadow: 1px 1px $cool;
-    color: $cooler;
-  }
-
   input, textarea {
     border: 1px solid $cooler;
     color: $cooler;
@@ -24,9 +15,11 @@
 
   .comments {
     display: flex;
+
     form, ul {
       width: 50%;
     }
+
     ul {
       padding-right: 21px;
     }
@@ -42,36 +35,6 @@
 
   .post-body {
     margin-bottom: 42px;
-  }
-
-  @media (max-width: $breakpoint-tablet) {
-    h1 {
-      font-size: 28px;
-    }
-    .avatar-login {
-      width: 360px;
-    }
-    .avatar-orgs {
-      height: 360px;
-    }
-  }
-
-  @media (max-width: $breakpoint-small) {
-    h1 {
-      position: relative;
-      z-index: 1;
-      margin-top: -56px;
-      padding: 12px;
-      margin-bottom: 0;
-      color: $warm;
-    }
-  }
-
-  @media (max-width: $breakpoint-xsmall) {
-    h1 {
-      font-size: 20px;
-      margin-top: -50px;
-    }
   }
 
 }

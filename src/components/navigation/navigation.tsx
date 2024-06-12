@@ -12,7 +12,7 @@ const Navigation = () => {
           {(
             location.pathname === '/' ?
               <span className="home-title">
-                <p>list of posts</p>
+                <h1>list of posts</h1>
               </span> :
               <Link to="/">&#x2190;back</Link>
           )}

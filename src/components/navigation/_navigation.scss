@@ -1,7 +1,7 @@
 .navigation {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   height: 120px;
   padding: 10px 20px;
   background-color: $warmer;
@@ -11,40 +11,13 @@
     font-family: 'Press Start 2P';
   }
 
-  p {
+  h1 {
     display: inline;
   }
 
   .home-title {
     span {
       font-size: 14px;
-    }
-  }
-
-  @media (max-width: $breakpoint-small) {
-    justify-content: center;
-  }
-
-  @media (max-width: $breakpoint-small) {
-    li {
-      font-size: 28px;
-    }
-  }
-
-  @media (max-width: $breakpoint-xsmall) {
-    li {
-      font-size: 24px;
-    }
-  }
-
-  @media (max-width: $breakpoint-micro) {
-    li {
-      font-size: 20px;
-    }
-    .home-title {
-      span:last-child {
-        font-size: 12px;
-      }
     }
   }
 

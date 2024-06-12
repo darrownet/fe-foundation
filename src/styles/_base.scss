@@ -18,6 +18,20 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: capitalize;
 }
 
+h1 {
+  font-size: 30px;
+  margin-bottom: 24px;
+  margin-top: -56px;
+  margin-left: 10px;
+  text-shadow: 1px 1px $cool;
+  color: $cooler;
+}
+
+h2 {
+  border-bottom: 1px solid $cooler;
+  margin-bottom: 8px;
+}
+
 a {
   color: $cool;
 }
