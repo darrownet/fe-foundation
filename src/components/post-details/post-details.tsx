@@ -42,19 +42,19 @@ const PostDetails = () => {
           })}
         </ul>
         <form>
-          <div>
+          <div className="label-input">
             <label htmlFor="name">Name:</label>
             <input name="name" type="test"/>
           </div>
-          <div>
+          <div className="label-input">
             <label htmlFor="email">Email:</label>
             <input name="email" type="email"/>
           </div>
-          <div>
+          <div className="label-textarea">
             <label htmlFor="comment">Comment:</label>
             <textarea name="comment"></textarea>
           </div>
-          <div>
+          <div className="submit">
             <input name="email" type="submit" value="post"/>
           </div>
         </form>

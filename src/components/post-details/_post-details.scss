@@ -13,6 +13,13 @@
 
   input, textarea {
     border: 1px solid $cooler;
+    color: $cooler;
+    outline: none;
+    padding: 8px;
+  }
+
+  textarea {
+    height: 120px;
   }
 
   .comments {
@@ -27,6 +34,10 @@
 
   .comment {
     margin-bottom: 10px;
+  }
+
+  .label-input, .label-textarea, .label-submit {
+    margin-bottom: 8px;
   }
 
   .post-body {
