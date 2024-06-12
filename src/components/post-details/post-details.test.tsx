@@ -10,6 +10,7 @@ import {comments, post} from "../../../tests/testData";
 import PostDetails from "./post-details";
 
 import {IRequest} from "../../../tests/utils/renderComponentInApp";
+import exp from "node:constants";
 
 
 const mockParams = {
@@ -30,16 +31,16 @@ describe("<PostDetails />", () => {
       {method: 'get', route: '/posts/3', response: post},
       {method: 'get', route: '/comments?postId=3', response: comments}
     ];
+
+    const {component} = commonSetup(<PostDetails/>, initialState, requests);
     await act(async () => {
-      const {component} = commonSetup(<PostDetails/>, initialState, requests);
-      setTimeout(() => {
-        const followers = component.container.querySelectorAll('.post-details .followers li');
-        expect(followers.length).toEqual(5);
-        const orgs = component.container.querySelectorAll('.post-details .orgs li');
-        expect(orgs.length).toEqual(9);
-        const repos = component.container.querySelectorAll('.post-details .repos li');
-        expect(repos.length).toEqual(30);
-      }, 0);
+      const title = component.getByText('ea molestias quasi exercitationem repellat qui ipsa sit aut');
+      expect(title).toBeTruthy();
+      const body = component.getByText('et iusto sed quo iure voluptatem occaecati omnis eligendi aut ad voluptatem doloribus vel accusantium quis pariatur molestiae porro eius odio et labore et velit aut');
+      expect(body).toBeTruthy();
+      const li = component.container.querySelectorAll('li');
+      expect(li.length).toBe(5);
+
     });
   });
 });
