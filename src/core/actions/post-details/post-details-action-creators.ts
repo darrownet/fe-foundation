@@ -57,7 +57,6 @@ export function postDetailsActionCreators(params: IPostDetailsActionCreatorsPara
           dispatch(asyncPostResponse(actionTypeMap[reqParams.actionTypeValue], {...response.data, id: response.data.id}));
         }
         if (reqParams.method === 'get'){
-          console.log('GET');
           dispatch(asyncPostResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
         }
       }

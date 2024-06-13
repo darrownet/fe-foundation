@@ -1,4 +1,4 @@
-import {ChangeEvent, FormEvent, useContext, useEffect, useState} from "react";
+import {ChangeEvent, FormEvent, useContext, useEffect, useMemo, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import {useParams} from 'react-router-dom';
 
@@ -36,7 +36,9 @@ const PostDetails = () => {
   const onFormSubmit = (event:FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = {name: newName, email: newEmail, body: newComment, postId: parseInt(postId || '')}
-    dispatch(actions.asyncPostRequest({actionTypeValue: 'comment', route: `/comments`, method: 'post', data}));
+    if (newName && newEmail && newComment) {
+      dispatch(actions.asyncPostRequest({actionTypeValue: 'comment', route: `/comments`, method: 'post', data}));
+    }
   }
 
   useEffect(() => {
@@ -57,9 +59,9 @@ const PostDetails = () => {
       <h2>Comments:</h2>
       <div className="comments">
         <ul>
-          {selectedPostComments.map((comment: IComment) => {
+          {selectedPostComments.map((comment: IComment, index:number) => {
             return (
-                <li className="comment" key={comment.id}>
+                <li className="comment" key={`${index}${comment.id}`}>
                   <p>{comment.name}</p>
                   <p>{comment.body}</p>
                 </li>
