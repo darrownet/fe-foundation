@@ -59,6 +59,7 @@ const PostDetails = () => {
       route: `/comments?postId=${postId}`,
       method: 'get'
     }));
+    document.title = "Post";
   }, []);
 
   useEffect(() => {

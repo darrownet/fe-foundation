@@ -25,6 +25,7 @@ const Posts = () => {
     if (selectedPost) {
       dispatch(postDetailsAction.clearPosts());
     }
+    document.title = "Home";
   }, []);
 
   return (

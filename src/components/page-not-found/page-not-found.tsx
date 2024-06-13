@@ -1,7 +1,11 @@
-import React from 'react';
+import {useEffect} from 'react';
 import {Link} from "react-router-dom";
 
 const PageNotFound = () => {
+
+  useEffect(() => {
+    document.title='\u200E';
+  }, []);
 
   return (
       <div className="page-not-found">
