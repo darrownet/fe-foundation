@@ -21,7 +21,6 @@ h1, h2, h3, h4, h5, h6 {
 h1 {
   font-size: 30px;
   margin-bottom: 24px;
-  margin-top: -56px;
   text-shadow: 1px 1px $cool;
   color: $cooler;
 }
@@ -39,6 +38,7 @@ h3 {
 
 a {
   color: $cool;
+  text-decoration: underline;
 }
 a:hover {
   color: $neutral;
@@ -64,5 +64,7 @@ textarea {
 }
 
 .content {
+  display: flex;
+  flex-direction: column;
   height: 100%;
 }

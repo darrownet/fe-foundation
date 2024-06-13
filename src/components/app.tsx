@@ -8,7 +8,6 @@ import {generateStore} from "../core/store";
 import {ServiceContextProvider} from "../core/service-context";
 
 import ErrorModal from "./error-modal/error-modal";
-import Navigation from "./navigation/navigation";
 import Routes from "./routes";
 
 import {IInitialState} from "../core/store";
@@ -27,8 +26,6 @@ const App = () => {
     <Provider store={store}>
       <ServiceContextProvider value={services}>
         <Router>
-          <ErrorModal />
-          <Navigation/>
           <Routes/>
         </Router>
       </ServiceContextProvider>

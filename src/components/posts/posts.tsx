@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from "react-redux";
 
 import {ServiceContext} from "../../core/service-context";
 
+import Navigation from "../navigation/navigation";
 import TypeaheadSelectBox from "../ui-elements/typeahead-select-box/typeahead-select-box";
 
 import {IInitialState} from "../../core/store";
@@ -27,9 +28,13 @@ const Posts = () => {
   }, []);
 
   return (
-    <div className="posts">
-      <TypeaheadSelectBox options={posts} />
-    </div>
+      <>
+        <Navigation/>
+        <div className="posts">
+          <TypeaheadSelectBox options={posts}/>
+        </div>
+      </>
+
   );
 };
 

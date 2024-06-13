@@ -1,10 +1,18 @@
 import * as types from "./app-action-types";
 
 interface IAppActionCreators {
-  appRequestError: Function,
+  appClearError: Function,
+  appRequestError: Function
 }
 
 export function appActionCreators(): IAppActionCreators {
+
+  function appClearError() {
+    console.log('feh');
+    return {
+      type: types.CLEAR_ERROR
+    }
+  }
 
   function appRequestError(payload: string) {
     return {
@@ -13,6 +21,6 @@ export function appActionCreators(): IAppActionCreators {
     }
   }
 
-  return {appRequestError}
+  return {appClearError, appRequestError}
 
 }

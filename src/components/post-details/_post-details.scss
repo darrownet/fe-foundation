@@ -1,6 +1,10 @@
 .post-details {
   padding: 42px;
 
+  h1 {
+    margin-top: -56px;
+  }
+
   label {
     display: block;
     margin-bottom: 4px;
@@ -66,4 +70,14 @@
     margin-bottom: 16px;
   }
 
+}
+
+.post-not-found {
+  padding: 42px;
+  a {
+    cursor: pointer;
+  }
+  p {
+    margin-bottom: 12px;
+  }
 }

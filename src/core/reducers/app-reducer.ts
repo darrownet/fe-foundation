@@ -12,6 +12,8 @@ const appReducer = (state: IAppState = initialAppState, action: AppAction): IApp
   switch (action.type) {
     case types.REQUEST_ERROR:
       return <IAppState>{...state, ...{error: action.payload}}
+    case types.CLEAR_ERROR:
+      return <IAppState>{...state, ...{error: undefined}}
     default:
       return state;
   }

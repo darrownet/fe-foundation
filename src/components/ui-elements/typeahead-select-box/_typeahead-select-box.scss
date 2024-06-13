@@ -1,7 +1,7 @@
 .typeahead-select-box {
   padding: 0 12px;
   ul {
-    max-height: 240px;
+    max-height: 360px;
     overflow-y: scroll;
   }
   input {
@@ -22,10 +22,16 @@
     padding: 6px 12px;
     background: $warm;
     color: $cooler;
+    text-decoration: none;
   }
   a:hover {
     background-color: rgba($warm,0.8);
   }
+
+  .options-list.all {
+    height: 50%;
+  }
+
   .input-field {
     position: relative;
     .select-aff {
