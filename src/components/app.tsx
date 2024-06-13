@@ -6,8 +6,6 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import {ServicesCreator} from "../core/services/services-creator";
 import {generateStore} from "../core/store";
 import {ServiceContextProvider} from "../core/service-context";
-
-import ErrorModal from "./error-modal/error-modal";
 import Routes from "./routes";
 
 import {IInitialState} from "../core/store";
