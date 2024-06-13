@@ -23,15 +23,18 @@ enum ActionTypeValues {
   post = 'post',
 }
 
-interface IAsyncPostDataRequest {
+interface IAsyncPostRequest {
   actionTypeValue: ActionTypeValues;
   route: string;
+  method: 'get' | 'post';
+  data?: object;
 }
 
 const actionTypeMap = {
   clear: types.CLEAR_POST_DETAILS,
   comments: types.COMMENTS_RECEIVED,
-  post: types.POST_RECEIVED
+  post: types.POST_RECEIVED,
+  comment: types.COMMENT_SUBMITTED
 }
 
 export function postDetailsActionCreators(params: IPostDetailsActionCreatorsParams): IPostDetailsActionCreators {
@@ -39,18 +42,31 @@ export function postDetailsActionCreators(params: IPostDetailsActionCreatorsPara
   const {appRequestError} = appActionCreators();
   const errorStr = "There was an error loading the data for the selected post.";
 
-  function asyncPostRequest(reqParams: IAsyncPostDataRequest) {
+  function asyncPostRequest(reqParams: IAsyncPostRequest) {
     return (dispatch: DispatchType) => {
       const onError = (error: Error) => {
-        dispatch(appRequestError(errorStr));
+        error.message = errorStr;
+        dispatch(appRequestError(error));
       }
       const onFail = (error: AxiosError) => {
-        dispatch(appRequestError(errorStr));
+        error.message = errorStr;
+        dispatch(appRequestError(error));
       }
       const onSuccess = (response: AxiosResponse) => {
-        dispatch(asyncPostResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
+        if (reqParams.method === 'post' && reqParams.data) {
+          dispatch(asyncPostResponse(actionTypeMap[reqParams.actionTypeValue], {...response.data, id: response.data.id}));
+        }
+        if (reqParams.method === 'get'){
+          console.log('GET');
+          dispatch(asyncPostResponse(actionTypeMap[reqParams.actionTypeValue], response.data));
+        }
       }
-      dataService.get(reqParams.route).then(onSuccess, onFail).catch(onError);
+      if (reqParams.method === 'get') {
+        dataService.get(reqParams.route).then(onSuccess, onFail).catch(onError);
+      }
+      if (reqParams.method === 'post') {
+        dataService.post(reqParams.route, reqParams.data).then(onSuccess, onFail).catch(onError);
+      }
     }
   }
 

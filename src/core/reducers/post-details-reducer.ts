@@ -19,6 +19,11 @@ const postDetailsReducer = (state: IPostDetailsState = initialPostDetailsState, 
       return <IPostDetailsState>{...state, ...{comments: undefined, post: undefined}};
     case types.COMMENTS_RECEIVED:
       return <IPostDetailsState>{...state, ...{comments: action.payload}};
+    case types.COMMENT_SUBMITTED:
+      const newComments: IComment[] = state.comments || [];
+      newComments.unshift(action.payload);
+      console.log(newComments);
+      return <IPostDetailsState>{...state, ...{comments: [...newComments]}};
     case types.POST_RECEIVED:
       return <IPostDetailsState>{...state, ...{post: action.payload}};
     default:

@@ -20,10 +20,12 @@ export function postsActionCreators(params: IPostsActionCreatorsParams): IPostsA
   function asyncPostsRequest() {
     return (dispatch: DispatchType) => {
       const onError = (error: Error) => {
-        dispatch(appRequestError(errorStr));
+        error.message = errorStr;
+        dispatch(appRequestError(error));
       }
-      const onFail = () => {
-        dispatch(appRequestError(errorStr));
+      const onFail = (error: AxiosError) => {
+        error.message = errorStr;
+        dispatch(appRequestError(error));
       }
       const onSuccess = (response: AxiosResponse) => {
         dispatch(asyncPostsResponse(response.data));

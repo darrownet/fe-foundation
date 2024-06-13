@@ -13,7 +13,7 @@ const PostDetails = () => {
   const dispatch = useDispatch();
 
   const selectedPost = useSelector((state: IInitialState) => state.postDetails.post);
-  const selectedPostComments = useSelector((state: IInitialState) => state.postDetails.comments);
+  const selectedPostComments = useSelector((state: IInitialState) => state.postDetails.comments) || [];
 
   const params = useParams();
   const [postId] = useState(params.postId);
@@ -35,13 +35,20 @@ const PostDetails = () => {
 
   const onFormSubmit = (event:FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log(newName, newEmail, newComment);
+    const data = {name: newName, email: newEmail, body: newComment, postId: parseInt(postId || '')}
+    dispatch(actions.asyncPostRequest({actionTypeValue: 'comment', route: `/comments`, method: 'post', data}));
   }
 
   useEffect(() => {
-    dispatch(actions.asyncPostRequest({actionTypeValue: 'post', route: `/posts/${postId}`}));
-    dispatch(actions.asyncPostRequest({actionTypeValue: 'comments', route: `/comments?postId=${postId}`}));
+    dispatch(actions.asyncPostRequest({actionTypeValue: 'post', route: `/posts/${postId}`, method: 'get'}));
+    dispatch(actions.asyncPostRequest({actionTypeValue: 'comments', route: `/comments?postId=${postId}`, method: 'get'}));
   }, []);
+
+  useEffect(() => {
+    setNewName('');
+    setNewEmail('');
+    setNewComment('');
+  }, [selectedPostComments]);
 
   return (
     <div className="post-details">
@@ -50,7 +57,7 @@ const PostDetails = () => {
       <h2>Comments:</h2>
       <div className="comments">
         <ul>
-          {selectedPostComments?.map((comment: IComment) => {
+          {selectedPostComments.map((comment: IComment) => {
             return (
                 <li className="comment" key={comment.id}>
                   <p>{comment.name}</p>
@@ -63,15 +70,15 @@ const PostDetails = () => {
           <h3>post a comment!</h3>
           <div className="label-input">
             <label htmlFor="name">Name:</label>
-            <input name="name" type="test" onChange={(event) => onFieldChange(event, 'name')}/>
+            <input name="name" type="test" value={newName} onChange={(event) => onFieldChange(event, 'name')}/>
           </div>
           <div className="label-input">
             <label htmlFor="email">Email:</label>
-            <input name="email" type="email" onChange={(event) => onFieldChange(event, 'email')}/>
+            <input name="email" type="email" value={newEmail} onChange={(event) => onFieldChange(event, 'email')}/>
           </div>
           <div className="label-textarea">
             <label htmlFor="comment">Comment:</label>
-            <textarea name="comment" onChange={(event) => onFieldChange(event, 'comment')}></textarea>
+            <textarea name="comment" value={newComment} onChange={(event) => onFieldChange(event, 'comment')}></textarea>
           </div>
           <div className="submit">
             <input name="email" type="submit" value="post"/>
