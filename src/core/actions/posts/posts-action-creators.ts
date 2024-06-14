@@ -42,5 +42,4 @@ export function postsActionCreators(params: IPostsActionCreatorsParams): IPostsA
   }
 
   return {asyncPostsRequest, asyncPostsResponse}
-
 }

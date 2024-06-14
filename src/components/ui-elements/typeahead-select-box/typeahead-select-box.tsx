@@ -35,9 +35,13 @@ const TypeaheadSelectBox:FC<ITypeaheadSelectBox> = ({ options }) => {
   };
 
   const onSelectClick = () => {
-    setShowAllPosts(!showAllPosts);
-    setFilteredOptions([]);
     setInputValue('');
+    setFilteredOptions([]);
+    if (inputValue) {
+      setShowAllPosts(false);
+    } else {
+      setShowAllPosts(!showAllPosts);
+    }
   };
 
   return (

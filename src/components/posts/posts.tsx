@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from "react";
+import {useContext, useEffect} from "react";
 import {useDispatch, useSelector} from "react-redux";
 
 import {ServiceContext} from "../../core/service-context";
@@ -35,7 +35,6 @@ const Posts = () => {
           <TypeaheadSelectBox options={posts}/>
         </div>
       </>
-
   );
 };
 

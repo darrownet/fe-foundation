@@ -1,8 +1,6 @@
 /**
  * @jest-environment jsdom
  */
-
-import React from "react";
 import {act, fireEvent, waitFor} from "@testing-library/react";
 import {commonSetup} from "../../../tests/utils/renderComponentInApp";
 import {posts} from "../../../tests/testData";
