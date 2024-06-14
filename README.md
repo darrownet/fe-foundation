@@ -26,7 +26,7 @@ Open a terminal, navigate to the root directory of this repository, and type the
 ### Scripts
 + **npm start:** Starts webpack dev server on localhost port 8080
 + **npm run build:** Creates a new build folder
-+ **npm test:** Runs the Jest test runner (currently ~98% coverage)
++ **npm test:** Runs the Jest test runner (currently ~90% coverage)
 
 ### Workflow
 #### development mode
@@ -37,10 +37,3 @@ Open a terminal, navigate to the root directory of this repository, and type the
 
 #### production mode
 - Run the command **npm run build**
-
-----
-
-## Running The Production Application
-- Open a terminal and navigate to the build directory.
-- Run any web server (ex. _python3 -m http.server_. This will serve the build at http://localhost:8000).
-- Open up a web browser and navigate to http://localhost:8000
