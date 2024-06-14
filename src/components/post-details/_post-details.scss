@@ -1,9 +1,5 @@
 .post-details {
-  padding: 42px;
-
-  h1 {
-    margin-top: -56px;
-  }
+  padding: 0 24px;
 
   label {
     display: block;
@@ -32,10 +28,11 @@
 
   .comments {
     display: flex;
+    flex-direction: column-reverse;
     margin-top: 24px;
 
     form, ul {
-      width: 50%;
+      width: 100%;
     }
 
     form {
@@ -43,10 +40,10 @@
       border: 1px solid $cooler;
       border-radius: 8px;
       padding: 16px;
+      margin-bottom: 24px;
     }
 
     ul {
-      padding-right: 21px;
       li {
         border-bottom: 1px solid $cool;
         padding-bottom: 10px;
@@ -68,6 +65,18 @@
 
   .post-body {
     margin-bottom: 16px;
+  }
+
+  @media (min-width: $breakpoint-tablet ) {
+    form, ul {
+      width: 50%;
+    }
+    ul {
+      padding-right: 21px;
+    }
+    .comments {
+      flex-direction: row;
+    }
   }
 
 }

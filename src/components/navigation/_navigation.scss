@@ -1,12 +1,9 @@
 .navigation {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 120px;
-  padding: 10px 20px;
+  min-height: 86px;
+  padding: 20px 20px 0;
   background-color: $warmer;
 
-  li {
+  a {
     font-size: 36px;
     font-family: 'Patua One', sans-serif;
   }
