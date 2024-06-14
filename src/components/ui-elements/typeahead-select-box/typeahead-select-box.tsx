@@ -1,4 +1,4 @@
-import { FC, FormEvent, useState } from 'react';
+import {FC, FormEvent, useState} from 'react';
 import {IPost} from "../../../core/schemas";
 import {Link} from "react-router-dom";
 
@@ -6,14 +6,14 @@ interface ITypeaheadSelectBox {
   options: IPost[];
 }
 
-const TypeaheadSelectBox:FC<ITypeaheadSelectBox> = ({ options }) => {
+const TypeaheadSelectBox: FC<ITypeaheadSelectBox> = ({options}) => {
   const [inputValue, setInputValue] = useState('');
   const [filteredOptions, setFilteredOptions] = useState<IPost[]>([]);
   const [, setSelectedOption] = useState<IPost | null>(null);
   const [showOptions, setShowOptions] = useState(false);
   const [showAllPosts, setShowAllPosts] = useState(false);
 
-  const onInputChange = (event:FormEvent<HTMLInputElement>) => {
+  const onInputChange = (event: FormEvent<HTMLInputElement>) => {
     const value = event.currentTarget.value;
     setInputValue(value);
     setShowAllPosts(false);
@@ -28,7 +28,7 @@ const TypeaheadSelectBox:FC<ITypeaheadSelectBox> = ({ options }) => {
     }
   };
 
-  const onOptionClick = (option:IPost) => {
+  const onOptionClick = (option: IPost) => {
     setInputValue(option.title);
     setSelectedOption(option);
     setShowOptions(false);
@@ -53,13 +53,14 @@ const TypeaheadSelectBox:FC<ITypeaheadSelectBox> = ({ options }) => {
               onChange={onInputChange}
               placeholder="select a post or search here.."
           />
-          <i className={`select-aff${filteredOptions.length > 1 ? ' suggestions' : (showAllPosts ? ' open' : ' closed')}`} onClick={onSelectClick}></i>
+          <i className={`select-aff${filteredOptions.length > 1 ? ' suggestions' : (showAllPosts ? ' open' : ' closed')}`}
+             onClick={onSelectClick}></i>
         </div>
         {showOptions && (
             <ul className="options-list">
               {filteredOptions.map((option, index) => (
                   <li key={index} onClick={() => onOptionClick(option)}>
-                  <Link to={`/posts/${option.id}`}>{option.title}</Link>
+                    <Link to={`/posts/${option.id}`}>{option.title}</Link>
                   </li>
               ))}
             </ul>
