@@ -63,6 +63,7 @@ const PostDetails = () => {
   }, []);
 
   useEffect(() => {
+    // console.log(selectedPostComments);
     setNewName('');
     setNewEmail('');
     setNewComment('');
@@ -91,20 +92,21 @@ const PostDetails = () => {
                     <h3>post a comment!</h3>
                     <div className="label-input">
                       <label htmlFor="name">Name:</label>
-                      <input name="name" type="test" value={newName} onChange={(event) => onFieldChange(event, 'name')}/>
+                      <input id="name" name="name" type="test" value={newName}
+                             onChange={(event) => onFieldChange(event, 'name')}/>
                     </div>
                     <div className="label-input">
                       <label htmlFor="email">Email:</label>
-                      <input name="email" type="email" value={newEmail}
+                      <input id="email" name="email" type="email" value={newEmail}
                              onChange={(event) => onFieldChange(event, 'email')}/>
                     </div>
                     <div className="label-textarea">
                       <label htmlFor="comment">Comment:</label>
-                      <textarea name="comment" value={newComment}
+                      <textarea id="comment"  name="comment" value={newComment}
                                 onChange={(event) => onFieldChange(event, 'comment')}></textarea>
                     </div>
                     <div className="submit">
-                      <input name="email" type="submit" value="post"/>
+                      <input type="submit" value="post"/>
                     </div>
                   </form>
                 </div>

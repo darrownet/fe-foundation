@@ -17,7 +17,7 @@ import {configureStore} from "@reduxjs/toolkit";
 import {IInitialState, initialState, rootReducer} from "../../src/core/store";
 
 export interface IRequest {
-  method: 'get';
+  method: 'get' | 'post';
   responseCode?: number;
   route: string;
   response: object;
@@ -28,6 +28,9 @@ export function commonSetup(ComponentToRender: any, initialState: object = {}, r
   const methodMap = {
     get: ({route, responseCode = 200, response}: IRequest) => {
       mock.onGet(route).reply(responseCode, response)
+    },
+    post: ({route, responseCode = 200, response}: IRequest) => {
+      mock.onPost(route).reply(responseCode, response)
     }
   }
   mock.reset();
@@ -54,7 +57,8 @@ export function renderComponentInApp(Component: any, state: object = {}) {
           <div className="content">
             <Routes>
               <Route path="/" element={<Component/>}/>
-              <Route path="/:login" element={<Component/>}/>
+              <Route path="/posts/:postId" element={<Component/>}/>
+              <Route path="*" element={<Component/>}/>
             </Routes>
           </div>
         </Router>

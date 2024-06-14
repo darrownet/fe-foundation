@@ -14,10 +14,6 @@ interface IPostDetailsActionCreatorsParams {
   dataService: IDataService
 }
 
-interface IAsyncPostDataRequest {
-  postId: number;
-}
-
 enum ActionTypeValues {
   comments = 'comments',
   post = 'post',
