@@ -1,5 +1,5 @@
 import * as types from "../actions/posts/posts-action-types";
-import {IPost} from "../schemas";
+import {IPost} from "../typings";
 
 export type IPostsState = {
   posts: IPost[];

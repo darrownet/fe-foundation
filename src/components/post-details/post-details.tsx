@@ -7,7 +7,7 @@ import {ServiceContext} from "../../core/service-context";
 import Navigation from "../navigation/navigation";
 
 import {IInitialState} from "../../core/store";
-import {IComment} from "../../core/schemas";
+import {IComment} from "../../core/typings";
 
 const PostDetails = () => {
 

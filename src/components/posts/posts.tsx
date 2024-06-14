@@ -7,7 +7,7 @@ import Navigation from "../navigation/navigation";
 import TypeaheadSelectBox from "../typeahead-select-box/typeahead-select-box";
 
 import {IInitialState} from "../../core/store";
-import {IPost} from "../../core/schemas";
+import {IPost} from "../../core/typings";
 
 const Posts = () => {
 

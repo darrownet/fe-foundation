@@ -1,5 +1,5 @@
 import * as types from "../actions/post-details/post-details-action-types";
-import {IComment,IPost} from "../schemas";
+import {IComment,IPost} from "../typings";
 
 export interface IPostDetailsState {
   comments: IComment[] | undefined;
