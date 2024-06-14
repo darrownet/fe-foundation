@@ -1,5 +1,5 @@
 import {FC, FormEvent, useState} from 'react';
-import {IPost} from "../../../core/schemas";
+import {IPost} from "../../core/schemas";
 import {Link} from "react-router-dom";
 
 interface ITypeaheadSelectBox {

@@ -8,9 +8,9 @@ html, body {
 }
 
 body {
-  padding: 0;
+  padding: 0 24px;
   background-color: $warmer;
-  font-family: 'Rubik', sans-serif;;
+  font-family: 'Rubik', sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 30px;
+  font-weight: bold;
   margin-bottom: 24px;
   text-shadow: 1px 1px $cool;
   color: $cooler;
@@ -28,7 +29,7 @@ h1 {
 h2 {
   border-bottom: 1px solid $cooler;
   margin-bottom: 8px;
-  font-size: 18px;
+  font-size: 24px;
   padding-bottom: 4px;
 }
 

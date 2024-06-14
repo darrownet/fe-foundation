@@ -1,12 +1,14 @@
 .typeahead-select-box {
-  padding: 0 12px;
+  border: 1px solid white;
+  border-radius: 8px;
+  overflow: hidden;
   ul {
-    max-height: 360px;
+    max-height: 370px;
+    border-top: 1px solid white;
     overflow-y: scroll;
   }
   input {
     background: transparent;
-    border: 1px solid white;
     outline: none;
     padding: 12px;
     font-size: 1em;
@@ -19,7 +21,7 @@
     display: inline-block;
     height: 100%;
     width: 100%;
-    padding: 6px 12px;
+    padding: 8px 12px;
     background: $warm;
     color: $cooler;
     text-decoration: none;

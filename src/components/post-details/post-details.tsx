@@ -81,8 +81,8 @@ const PostDetails = () => {
                     {selectedPostComments.map((comment: IComment, index: number) => {
                       return (
                           <li className="comment" key={`${index}${comment.id}`}>
-                            <p>{comment.name}</p>
-                            <p>{comment.body}</p>
+                            <h3 className="comment-name">{comment.name}</h3>
+                            <p className="comment-body">{comment.body}</p>
                           </li>
                       );
                     })}
